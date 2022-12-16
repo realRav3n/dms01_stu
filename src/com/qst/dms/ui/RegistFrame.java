@@ -20,7 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import com.qst.dms.entity.User;
-import com.qst.dms.service.UserService;
+import com.qst.dms.service.LoginService;
 
 //注册窗口
  class RegistFrame extends JFrame {
@@ -46,14 +46,14 @@ import com.qst.dms.service.UserService;
     private static User user;
 
     // 用户业务类
-    private UserService userService;
+    private LoginService userService;
 
     // 构造方法
     public RegistFrame() {
         super("用户注册");
 
         // 实例化用户业务类对象
-        userService = new UserService();
+        userService = new LoginService();
 
         // 设置窗体的icon
         ImageIcon icon = new ImageIcon("images\\dms.png");
@@ -94,7 +94,7 @@ import com.qst.dms.service.UserService;
         //cmbDegree.setEditable(true);
         btnOk = new JButton("确定");
         // 注册监听器，监听确定按钮
-        btnOk.addActionListener(new RegisterListener());
+        //btnOk.addActionListener(new RegisterListener());
         btnCancle = new JButton("重置");
         // 注册监听器，监听重置按钮
         btnCancle.addActionListener(new ResetListener());
@@ -146,7 +146,7 @@ import com.qst.dms.service.UserService;
         // 设置窗体初始可见
         this.setVisible(true);
     }
-
+/*
     // 监听类，负责处理确认按钮的业务逻辑
     private class RegisterListener implements ActionListener {
         // 重写actionPerFormed()方法，事件处理方法
@@ -185,7 +185,7 @@ import com.qst.dms.service.UserService;
             }
         }
     }
-
+*/
     // 监听类，负责处理重置按钮
     public class ResetListener implements ActionListener {
         // 重写actionPerFormed()方法，重置组件内容事件处理方法

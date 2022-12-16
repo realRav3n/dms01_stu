@@ -13,9 +13,9 @@
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/entity/MatchedTransport.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/entity/Transport.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/gather/TransportAnalyse.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/LogRecService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/TransportService.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/UserService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/LogRecService_old.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/LoginService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/TransportService_old.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/ui/JTableDemo.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/ui/MainFrame_Admin.java" charset="GBK" />
     <file url="PROJECT" charset="GBK" />

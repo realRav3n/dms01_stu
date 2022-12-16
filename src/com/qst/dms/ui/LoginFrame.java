@@ -1,7 +1,7 @@
 package com.qst.dms.ui;
 
 import com.qst.dms.entity.User;
-import com.qst.dms.service.UserService;
+import com.qst.dms.service.LoginService;
 
 import java.awt.*;
 
@@ -93,12 +93,12 @@ class  login extends JFrame {
 
         // 设置窗体初始可见
         this.setVisible(true);
-
+/*
         btnLogin.addActionListener(e -> {
-            User user1 = new UserService().findUserByName(userField.getText());
+            User user1 = new LoginService().findUserByName(userField.getText());
             int tmpUserClass = Integer.parseInt(rbUser.isSelected() ? "0" : "1");
             //0 存用户, 1 存物流
-            if(user1 == null || tmpUserClass != user1.getUserClass()) {
+            if(user1 == null || tmpUserClass != user1.getUsertype()) {
                 JOptionPane.showMessageDialog(null, "无此用户,建议先注册！");
             }
             else {
@@ -114,6 +114,7 @@ class  login extends JFrame {
                 }
             }
         });
+        */
         btnRegister.addActionListener(
                 e -> {
                     new RegistFrame();

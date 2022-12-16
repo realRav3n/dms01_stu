@@ -3,6 +3,7 @@ package com.qst.dms.entity;
 import java.io.Serializable;
 
 public class HandleTransport extends Transport implements Serializable {
+    //Transport’π æ¿‡
     public HandleTransport(int transport_id, String destination, String recipient,
                            String recipient_phone, String now_handle, String now_handler_phone) {
         this.transport_id = transport_id;

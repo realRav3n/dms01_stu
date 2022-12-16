@@ -10,6 +10,7 @@ import java.util.Date;
 public class TransportDetails extends Log implements Serializable{
     public TransportDetails() {
     }
+    //log视图展示内容
     public TransportDetails(int transport_id, String time, int transport_type,
                String next_handler, String next_handler_phone) {
         this.transport_id=transport_id;

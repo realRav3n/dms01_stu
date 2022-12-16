@@ -127,5 +127,9 @@ public class DBUtil {
 		}
 		return  -1;
 	}
+	public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+		DBUtil db = new DBUtil();
+		db.getConnection();
+	}
 
 }

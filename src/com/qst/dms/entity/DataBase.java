@@ -9,9 +9,9 @@ import java.util.Date;
  * @作者 awa
  */
 public class DataBase implements Serializable{
-	protected int transport_id;
+	protected int transport_id; //快递单号
 	// 状态
-	protected int transport_type;
+	protected int transport_type; //快递类型
 	// 状态常量
 	public static final int GATHER=0;//未发货
 	public static final int SEND=1;//送货中

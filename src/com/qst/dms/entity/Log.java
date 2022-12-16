@@ -8,11 +8,11 @@ import java.util.Date;
 
 //货运物流信息
 public class Log extends DataBase implements Serializable{
-    protected int log_id;
-    protected String time;
-    protected String handle;
-    protected   String next_handle;
-    protected String next_handle_phone;
+    protected int log_id; //数据库中的日志记录id（每次操作都有）
+    protected String time; // 日志采集时间
+    protected String handle; //填日志的用户信息（名字）
+    protected String next_handle; //下一个接收人名字
+    protected String next_handle_phone; //下一个接收人的电话
 
     public int getLog_id() {
         return log_id;

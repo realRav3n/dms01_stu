@@ -8,13 +8,13 @@ import java.util.Date;
 
 //货运物流信息
 public class Transport extends DataBase implements Serializable{
-	protected String transport_name;
-	protected String dispatch;
-	protected String destination;
-	protected String recipient;
-	protected String recipient_phone;
-	protected String now_handle;
-	protected String now_handle_phone;
+	protected String transport_name; //快递名称
+	protected String dispatch; //发件人（resource）
+	protected String destination; //目的地
+	protected String recipient; //收件人（receiver）
+	protected String recipient_phone; //收件人电话
+	protected String now_handle; //快递目前的经手人
+	protected String now_handle_phone; //快递目前经手人的电话
 
 	public String getTransport_name() {
 		return transport_name;

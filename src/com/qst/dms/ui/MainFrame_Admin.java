@@ -30,14 +30,12 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import com.qst.dms.entity.DataBase;
-import com.qst.dms.entity.LogRec;
-import com.qst.dms.entity.MatchedLogRec;
-import com.qst.dms.entity.MatchedTableModel;
-import com.qst.dms.entity.MatchedTransport;
+//import com.qst.dms.entity.LogRec;
+//import com.qst.dms.entity.MatchedLogRec;
+//import com.qst.dms.entity.MatchedTableModel;
+//import com.qst.dms.entity.MatchedTransport;
 import com.qst.dms.entity.Transport;
-import com.qst.dms.gather.LogRecAnalyse;
-import com.qst.dms.service.LogRecService;
-import com.qst.dms.service.TransportService;
+//import com.qst.dms.gather.LogRecAnalyse;
 import com.qst.dms.util.Config;
 
 //主窗口
@@ -68,21 +66,21 @@ public class MainFrame_Admin extends JFrame {
 	private JScrollPane scrollPane;
 	private CardLayout card;
 	// 声明日志对象
-	private LogRec log;
+	//private LogRec log;
 	// 声明物流对象
 	private Transport trans;
 	// 声明日志列表
-	private ArrayList<LogRec> logList;
+	//private ArrayList<LogRec> logList;
 	// 声明物流列表
 	private ArrayList<Transport> transList;
 	// 声明匹配日志列表
-	private ArrayList<MatchedLogRec> matchedLogs;
+	//private ArrayList<MatchedLogRec> matchedLogs;
 	// 声明匹配物流列表
-	private ArrayList<MatchedTransport> matchedTrans;
+	//private ArrayList<MatchedTransport> matchedTrans;
 	// 声明日志业务对象
-	private LogRecService logRecService;
+	//private LogRecService_old logRecService;
 	// 声明物流业务对象
-	private TransportService transportService;
+	//private TransportService_old transportService;
 	private JButton btnNewButton;
 	final private String[] title = {"时间", "状态", "接收人", "电话号码"};
 	private JTable tabDemo;
@@ -98,13 +96,14 @@ public class MainFrame_Admin extends JFrame {
 		this.setIconImage(icon.getImage());
 
 		// 列表、业务对象初始化
+		/*
 		logList = new ArrayList<LogRec>();
 		transList = new ArrayList<Transport>();
 		matchedLogs = new ArrayList<MatchedLogRec>();
 		matchedTrans = new ArrayList<MatchedTransport>();
-		logRecService = new LogRecService();
-		transportService = new TransportService();
-
+		logRecService = new LogRecService_old();
+		transportService = new TransportService_old();
+		*/
 		// 初始化菜单
 		initMenu();
 		// 初始化工具栏
@@ -448,35 +447,6 @@ public class MainFrame_Admin extends JFrame {
 		}
 	}
 
-	// 日志数据采集监听类
-	private class GatherLogListener implements ActionListener {
-		// 数据采集的事件处理方法
-		public void actionPerformed(ActionEvent e) {
-			// 获取日志ID
-			//int id = Integer.parseInt(txtLogId.getText().trim());
-			int id = -1;
-			// 创建当前时间
-			Date time = new Date();
-			// 获取地址栏地址
-			String adress = txtLocation.getText().trim();
-			// 设置数据类型为：采集
-			int type = DataBase.GATHER;
-			// 获取用户姓名
-			String user = txtName.getText().trim();
-			// 获取ip地址
-			String ip = txtIP.getText().trim();
-			// 设置日志类型
-			int logType = rbLogin.isSelected() ? LogRec.LOG_IN : LogRec.LOG_OUT;
-			// 将数据封装到日志对象
-			log = new LogRec(id, time, adress, type, user, ip, logType);
-			// 将日志对象添加到日志列表
-			logList.add(log);
-			// 显示对话框
-			JOptionPane.showMessageDialog(null, "日志采集成功！", "提示",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
-
 	// 物流数据采集监听类
 	private class GatherConfirmListener extends ConfirmListener implements ActionListener {
 		// 数据采集的事件处理方法
@@ -496,9 +466,10 @@ public class MainFrame_Admin extends JFrame {
 			// 获取接收人信息
 			String receiver = txtGatherReceiver.getText().trim();
 			// 设置物流类型为发送中
-			int transportType = Transport.SENDDING;
+			//int transportType = Transport.SENDDING;
 			//System.out.println(id);
-			System.out.println(time+cargoName+type+resource+destination+receiver+transportType);
+			//System.out.println(time+cargoName+type+resource+destination+receiver+transportType);
+			System.out.println(time+cargoName+type+resource+destination+receiver);
 			// 将数据包装成物流对象
 			/*
 			trans = new Transport(id, time, " ",type, cargoName, resource,destination,receiver,
@@ -527,7 +498,7 @@ public class MainFrame_Admin extends JFrame {
 			String cargoId =txtAlterCargoId.getText().trim();
 
 			// 设置数据类型为：采集
-			int type = DataBase.WRITE;
+			//int type = DataBase.WRITE;
 			// 获取接收人信息
 			String receiver = txtAlterReceiver.getText().trim();
 			// 设置物流类型为发送中
@@ -536,7 +507,8 @@ public class MainFrame_Admin extends JFrame {
 			if(rbStatus2.isSelected()) transportType=2;
 			if (rbStatus3.isSelected()) transportType=3;
 			//System.out.println(id);
-			System.out.println(time+cargoId+type+receiver+transportType);
+			//System.out.println(time+cargoId+type+receiver+transportType);
+			System.out.println(time+cargoId+receiver+transportType);
 			// 将数据包装成物流对象
 			/*
 			trans = new Transport(id, time, " ",type, cargoName, resource,destination,receiver,
@@ -609,20 +581,7 @@ public class MainFrame_Admin extends JFrame {
 
 		}
 	}
-	// 匹配日志信息监听类
-	private class MatchLogListener implements ActionListener {
-		// 数据匹配的事件处理方法
-		public void actionPerformed(ActionEvent e) {
-			LogRecAnalyse logAn = new LogRecAnalyse(logList);
-			// 日志数据过滤
-			logAn.doFilter();
-			// 日志数据分析
-			matchedLogs = logAn.matchData();
-			// 显示对话框
-			JOptionPane.showMessageDialog(null, "日志数据过滤、分析匹配成功！", "提示",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-	}
+
 
 	// 需要补充匹配物流信息监听类
 	private class MatchTransListener implements ActionListener {
@@ -642,44 +601,8 @@ public class MainFrame_Admin extends JFrame {
 
 	//需要补充保存数据的事件处理方法
 
-	//数据显示监听类
 
-	// 刷新日志选项卡，显示日志信息表格
-	private void flushMatchedLogTable() {
-		// 创建tableModel，通过标志为区分日志和物流：1，日志；0，物流
-		MatchedTableModel logModel = new MatchedTableModel(logRecService.readLogResult(), 1);
-		// 使用tableModel创建JTable
-		JTable logTable = new JTable(logModel);
-		// 通过JTable对象创建JScrollPane，显示数据
-		scrollPane = new JScrollPane(logTable);
-		// 添加日志选项卡
-		pShowPane.add("日志", scrollPane);
-	}
-
-	//需要补充显示物流信息表格
-	private void flushMatchedTransTable() {
-		//显示物流数据表格
-		MatchedTableModel tranModel = new MatchedTableModel(transportService.readTranResult(), 2);
-		JTable tranTable = new JTable((tranModel));
-		scrollPane = new JScrollPane(tranTable);
-		pShowPane.add("物流", scrollPane);
-	}
-
-	private class UpdateTableThread extends Thread {
-		public void run() {
-			while(true) {
-				pShowPane.removeAll();
-				flushMatchedLogTable();
-				flushMatchedTransTable();
-				try {
-					Thread.sleep(1 * 30 * 100);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-
+/*
 	private class SendDataListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			System.out.println(matchedLogs.size());
@@ -723,7 +646,7 @@ public class MainFrame_Admin extends JFrame {
 		}
 
 	}
-
+*/
 
 	public static void main(String[] args) {
 		new MainFrame_Admin();

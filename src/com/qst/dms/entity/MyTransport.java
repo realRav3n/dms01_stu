@@ -3,6 +3,7 @@ package com.qst.dms.entity;
 import java.io.Serializable;
 
 public class MyTransport extends Transport implements Serializable {
+    //用户展示界面
     public MyTransport(int transport_id, String recipient, String transport_name,
                        int transport_type, String now_handle, String now_handler_phone) {
         this.transport_id = transport_id;
