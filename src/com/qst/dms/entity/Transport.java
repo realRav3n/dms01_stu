@@ -1,72 +1,71 @@
-/**   
- * @¹«Ë¾   ÇàÈíÊµÑµQST
- * @×÷Õß zhaokl
+/**
+ * @ä½œè€… zhaokl
  */
 package com.qst.dms.entity;
 
 import java.io.Serializable;
 import java.util.Date;
 
-//»õÔËÎïÁ÷ĞÅÏ¢
+//è´§è¿ç‰©æµä¿¡æ¯
 public class Transport extends DataBase implements Serializable{
-	/**
-	 * ¾­ÊÖÈË
-	 */
-	private String handler;
-	/**
-	 * ÊÕ»õÈË
-	 */
-	private String reciver;
-	/**
-	 * ÎïÁ÷×´Ì¬
-	 */
-	private int transportType;
-	/**
-	 * ÎïÁ÷×´Ì¬³£Á¿:·¢»õÖĞ, ËÍ»õÖĞ, ÒÑÇ©ÊÕ
-	 */
-	public static final int SENDDING = 1;// ·¢»õÖĞ
-	public static final int TRANSPORTING = 2;// ËÍ»õÖĞ
-	public static final int RECIEVED = 3;// ÒÑÇ©ÊÕ
+	protected String transport_name;
+	protected String dispatch;
+	protected String destination;
+	protected String recipient;
+	protected String recipient_phone;
+	protected String now_handle;
+	protected String now_handle_phone;
 
-	public String getHandler() {
-		return handler;
+	public String getTransport_name() {
+		return transport_name;
 	}
 
-	public void setHandler(String handler) {
-		this.handler = handler;
+	public String getDispatch() {
+		return dispatch;
 	}
 
-	public String getReciver() {
-		return reciver;
+	public String getDestination() {
+		return destination;
 	}
 
-	public void setReciver(String reciver) {
-		this.reciver = reciver;
+	public String getRecipient() {
+		return recipient;
 	}
 
-	public int getTransportType() {
-		return transportType;
+	public String getRecipient_phone() {
+		return recipient_phone;
 	}
 
-	public void setTransportType(int transportType) {
-		this.transportType = transportType;
+	public String getNow_handle() {
+		return now_handle;
+	}
+
+	public String getNow_handle_phone() {
+		return now_handle_phone;
 	}
 
 	public Transport() {
 
 	}
 
-	public Transport(int id, Date time, String address, int type,
-			String handler, String reciver, int transportType) {
-		super(id, time, address, type);
-		this.handler = handler;
-		this.reciver = reciver;
-		this.transportType = transportType;
+	public Transport(int transport_id, String name, String dispatch, String destination,
+			String recipient, String recipient_phone, String now_handler,
+					 String now_handler_phone, int transport_type ) {
+		this.transport_id=transport_id;
+		this.transport_name = name;
+		this.dispatch = dispatch;
+		this.destination = destination;
+		this.recipient = recipient;
+		this.recipient_phone = recipient_phone;
+		this.now_handle = now_handler;
+		this.now_handle_phone = now_handler_phone;
+		this.transport_type=transport_type;
 	}
 
 	public String toString() {
-		return this.getId() + "," + this.getTime() + "," + this.getAddress()
-				+ "," + this.getType() + "," + handler + "," + transportType;
+		return this.getTransport_id() + "," + this.getTransport_name() + "," + this.getDispatch()
+				+ "," + this.getDestination() + "," + this.getRecipient() + "," + this.getRecipient_phone()
+				+ "," + this.getNow_handle() + "," + this.getNow_handle_phone();
 	}
 
 }

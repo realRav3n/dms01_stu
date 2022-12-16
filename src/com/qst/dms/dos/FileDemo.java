@@ -1,3 +1,4 @@
+/*
 package com.qst.dms.dos;
 
 import java.util.ArrayList;
@@ -37,13 +38,13 @@ public class FileDemo {
 		TransportService tranService = new TransportService();
 		ArrayList<MatchedTransport> matchTrans = new ArrayList<>();
 		matchTrans.add(new MatchedTransport(
-				new Transport(2001, new Date(), "青島",DataBase.GATHER,"zhangsan","zhaokel",1),
-				new Transport(2002, new Date(), "北京",DataBase.GATHER,"lisi","zhaokel",2),
-				new Transport(2003, new Date(), "北京",DataBase.GATHER,"wangwu","zhaokel",3)));
+				new Transport(2001, new Date(), DataBase.GATHER,"cnm","zhaokel","","3",1),
+				new Transport(2002, new Date(), DataBase.GATHER,"qingdao","zhaokel","","3",1),
+				new Transport(2003, new Date(), DataBase.GATHER,"wuhupijiu","zhaokel","","3",1)));
 		matchTrans.add(new MatchedTransport(
-				new Transport(2004, new Date(), "青島",DataBase.GATHER,"maliu","zhaokel",1),
-				new Transport(2005, new Date(), "北京",DataBase.GATHER,"sunqi","zhaokel",2),
-				new Transport(2006, new Date(), "北京",DataBase.GATHER,"fengba","zhaokel",3)));
+				new Transport(2004, new Date(), DataBase.GATHER,"shiti","zhaokel","","3",1),
+				new Transport(2005, new Date(), DataBase.GATHER,"fei","zhaokel","","3",1),
+				new Transport(2006, new Date(), DataBase.GATHER,"bing","zhaokel","","3",1)));
 		//保存匹配的物流信息到文件中
 		tranService.saveMatchedTransport(matchTrans);
 		//保存匹配的物流信息到数据库中
@@ -53,3 +54,4 @@ public class FileDemo {
 		tranService.showMatchTransport(list2);
 	}
 }
+*/

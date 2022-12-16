@@ -1,3 +1,4 @@
+
 package com.qst.dms.service;
 
 import java.io.*;
@@ -46,8 +47,8 @@ public class TransportService {
 			// 接收物流状态
 			int transportType = scanner.nextInt();
 			// 创建物流信息对象
-			trans = new Transport(id, nowDate, address, type, handler, reciver,
-					transportType);
+			//trans = new Transport(id, nowDate, address, type, handler, reciver,
+			//		transportType);
 		} catch (Exception e) {
 			System.out.println("采集的日志信息不合法");
 		}

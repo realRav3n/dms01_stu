@@ -17,7 +17,7 @@
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/TransportService.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/service/UserService.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/qst/dms/ui/JTableDemo.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/qst/dms/ui/MainFrame_temp.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/qst/dms/ui/MainFrame_Admin.java" charset="GBK" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

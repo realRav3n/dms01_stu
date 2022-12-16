@@ -1,3 +1,4 @@
+
 package com.qst.dms.gather;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class TransportAnalyse extends DataFilter implements IDataAnalyse {
 	private ArrayList<Transport> transSends = new ArrayList<>();
 	// 送货集合
 	private ArrayList<Transport> transIngs = new ArrayList<>();
+
 	// 已签收集合
 	private ArrayList<Transport> transRecs = new ArrayList<>();
 
